@@ -62,6 +62,7 @@ const showDraw=()=>{
     disableBoxes();
 }
 const checkWinner=()=>{
+    let draw=true;
     for(let pattern of winPattern){
         let pos1val=boxes[pattern[0]].innerText;
         let pos2val=boxes[pattern[1]].innerText;
@@ -69,9 +70,20 @@ const checkWinner=()=>{
         if(pos1val!="" && pos2val!="" && pos3val!=""){
             if(pos1val===pos2val && pos2val===pos3val){
                 showWinner(pos1val);
+                return;
             }
         }
     }
-}
+    for (let box of boxes) {
+        if (box.innerText === "") {
+            draw = false; // If any box is empty, the game is not a draw yet
+            break;
+        }
+    }
+
+    if (draw) {
+        showDraw();
+    }
+};
 newgamebtn.addEventListener("click",resetGame);
 resetbtn.addEventListener("click",resetGame);
