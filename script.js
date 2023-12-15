@@ -1,4 +1,4 @@
-alert("Hi and welcome to the tic-tac-toe game. If game draws simply press the reset button");
+alert("Hi and welcome to the tic-tac-toe game. Enjoy the game 😁");
 let boxes=document.querySelectorAll(".box");
 let resetbtn=document.querySelector("#reset");
 let newgamebtn=document.querySelector("#newgame");
